@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fundatecheroes</string>
+    <string name="what_name">Qual Seu Nome!?</string>
+    <string name="limpar">Limpar!</string>
+    <string name="okay">Okay</string>
+    <string name="helloname">olá, %s</string>
+</resources>
