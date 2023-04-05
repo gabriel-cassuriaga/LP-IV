@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">exerciciolpiv1</string>
+    <string name="fundatec_logo">Fundatec Logo</string>
+    <string name="insira_seu_email">Insira seu email</string>
+    <string name="insira_sua_senha">Insira sua senha</string>
+    <string name="login">login</string>
+    <string name="novo_por_aqui">novo por aqui?</string>
+</resources>
