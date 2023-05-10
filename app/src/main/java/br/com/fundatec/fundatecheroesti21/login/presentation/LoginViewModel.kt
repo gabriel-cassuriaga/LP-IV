@@ -16,12 +16,12 @@ class LoginViewModel : ViewModel() {
             return
         }
 
-        if (email.isNullOrBlank()) {
+        if (email.isNullOrBlank() || !isValidEmail(email)) {
             viewState.value = LoginViewState.ShowEmailErrorMessage
             return
         }
 
-        if (password.isNullOrBlank()) {
+        if (password.isNullOrBlank() || password.length > 16) {
             viewState.value = LoginViewState.ShowPasswordErrorMessage
             return
         }
@@ -29,7 +29,16 @@ class LoginViewModel : ViewModel() {
         fetchLogin(email, password)
     }
 
+    private fun isValidEmail(email: String): Boolean {
+        val regex = Regex("[A-Za-z\\d._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
+        return regex.matches(email)
+    }
+
     private fun fetchLogin(email: String, password: String) {
         viewState.value = LoginViewState.ShowHomeScreen
+    }
+
+    fun validadeInputs(s: String, s1: String) {
+
     }
 }

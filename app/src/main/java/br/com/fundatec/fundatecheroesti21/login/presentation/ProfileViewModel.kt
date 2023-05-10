@@ -21,7 +21,13 @@
                 return
             }
 
-            if (password.isNullOrBlank()) {
+            if (email.isNullOrBlank() || !isValidEmail(email)) {
+                viewState.value = ProfileViewState.ShowEmailErrorMessage
+                return
+            }
+
+
+            if (password.isNullOrBlank() || password.length > 16) {
                 viewState.value = ProfileViewState.ShowPasswordErrorMessage
                 return
             }
@@ -31,6 +37,15 @@
 
         private fun fetchLogin(email: String, password: String) {
             viewState.value = ProfileViewState.ShowHomeScreen
+        }
+
+        fun isValidEmail(email: String): Boolean {
+            val regex = Regex("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
+            return regex.matches(email)
+        }
+
+        fun validadeInputs(s: String, s1: String) {
+
         }
     }
 
