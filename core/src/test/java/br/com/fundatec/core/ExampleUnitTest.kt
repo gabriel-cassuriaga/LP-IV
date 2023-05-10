@@ -1,4 +1,4 @@
-package com.example.atividade
+package br.com.fundatec.core
 
 import org.junit.Test
 
