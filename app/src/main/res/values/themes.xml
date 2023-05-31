@@ -20,5 +20,12 @@
         <item name="android:textColor">@color/design_default_color_error</item>
         <item name="android:textSize">24sp</item>
     </style>
+    <style name="Theme.FundatecHeroesTI21.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.FundatecHeroesTI21.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.FundatecHeroesTI21.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

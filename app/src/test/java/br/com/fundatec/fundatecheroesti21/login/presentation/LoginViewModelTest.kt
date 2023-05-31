@@ -44,7 +44,7 @@ class LoginViewModelTest {
 
     @Test
     fun validate_inputs_password_length(){
-        viewModel.validadeInputs("test@gmail.com", "12345678910111213141516")
+        viewModel.validateInputs("test@gmail.com", "12345678910111213141516")
 
         assertEquals(viewModel.state.value, LoginViewState.ShowErrorMessage)
     }

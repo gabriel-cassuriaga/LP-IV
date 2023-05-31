@@ -38,7 +38,4 @@ class LoginViewModel : ViewModel() {
         viewState.value = LoginViewState.ShowHomeScreen
     }
 
-    fun validadeInputs(s: String, s1: String) {
-
-    }
 }
