@@ -42,13 +42,6 @@ class LoginViewModelTest {
         assertEquals(viewModel.state.value, LoginViewState.ShowHomeScreen)
     }
 
-    @Test
-    fun validate_inputs_password_length(){
-        viewModel.validadeInputs("test@gmail.com", "12345678910111213141516")
-
-        assertEquals(viewModel.state.value, LoginViewState.ShowErrorMessage)
-    }
-
     private fun prepareScenario() {
         viewModel.state.observeForever(stateObserver)
     }

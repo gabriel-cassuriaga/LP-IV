@@ -3,9 +3,14 @@ package br.com.fundatec.fundatecheroesti21.login.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import br.com.fundatec.fundatecheroesti21.login.domain.LoginUseCase
 import br.com.fundatec.fundatecheroesti21.login.presentation.model.LoginViewState
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
+    private val usecase by lazy { LoginUseCase() }
+
     private val viewState = MutableLiveData<LoginViewState>()
     val state: LiveData<LoginViewState> = viewState
 
@@ -16,12 +21,12 @@ class LoginViewModel : ViewModel() {
             return
         }
 
-        if (email.isNullOrBlank() || !isValidEmail(email)) {
+        if (email.isNullOrBlank()) {
             viewState.value = LoginViewState.ShowEmailErrorMessage
             return
         }
 
-        if (password.isNullOrBlank() || password.length > 16) {
+        if (password.isNullOrBlank()) {
             viewState.value = LoginViewState.ShowPasswordErrorMessage
             return
         }
@@ -29,16 +34,14 @@ class LoginViewModel : ViewModel() {
         fetchLogin(email, password)
     }
 
-    private fun isValidEmail(email: String): Boolean {
-        val regex = Regex("[A-Za-z\\d._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
-        return regex.matches(email)
-    }
-
     private fun fetchLogin(email: String, password: String) {
-        viewState.value = LoginViewState.ShowHomeScreen
-    }
-
-    fun validadeInputs(s: String, s1: String) {
-
+        viewModelScope.launch {
+            val isSuccess = usecase.login(email = email, password = password)
+            if (isSuccess) {
+                viewState.value = LoginViewState.ShowHomeScreen
+            } else {
+                viewState.value = LoginViewState.ShowErrorMessage
+            }
+        }
     }
 }

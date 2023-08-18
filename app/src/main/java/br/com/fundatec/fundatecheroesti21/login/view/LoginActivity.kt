@@ -6,7 +6,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import br.com.fundatec.core.hide
 import br.com.fundatec.core.show
-import br.com.fundatec.fundatecheroesti21.MainActivity
+import br.com.fundatec.fundatecheroesti21.register.RegisterActivity
+import br.com.fundatec.fundatecheroesti21.home.view.HomeActivity
 import br.com.fundatec.fundatecheroesti21.R
 import br.com.fundatec.fundatecheroesti21.databinding.ActivityLoginBinding
 import br.com.fundatec.fundatecheroesti21.login.presentation.LoginViewModel
@@ -31,6 +32,9 @@ class LoginActivity : AppCompatActivity() {
                 email = binding.email.text.toString(),
             )
         }
+        binding.tvNewHere.setOnClickListener {
+            navigateToRegister()
+        }
     }
 
     private fun initializeObserver() {
@@ -41,9 +45,19 @@ class LoginActivity : AppCompatActivity() {
                 LoginViewState.ShowEmailErrorMessage -> showEmailError()
                 LoginViewState.ShowPasswordErrorMessage -> showPasswordError()
                 LoginViewState.ShowLoading -> showLoading()
+                LoginViewState.ShowRegisterActivity -> navigateToRegister()
             }
         }
     }
+
+
+
+    private fun navigateToRegister() {
+        val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+        startActivity(intent)
+    }
+
+
 
     private fun showLoading() {
         binding.pbLoading.show()
@@ -66,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showHome() {
         binding.pbLoading.hide()
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         startActivity(intent)
         finish()
     }
