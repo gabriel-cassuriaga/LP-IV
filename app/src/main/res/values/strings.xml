@@ -1,4 +1,15 @@
 <resources>
+    <string-array name="heroes">
+        <item>Selecione</item>
+        <item>Hero</item>
+        <item>Villain</item>
+    </string-array>
+    <string-array name="universe">
+        <item>Selecione</item>
+        <item>Marvel</item>
+        <item>DC</item>
+    </string-array>
+
     <string name="app_name">Fundatec Heroes TI21</string>
     <string name="what_your_name">Qual o seu nome?</string>
     <string name="digite_o_seu_nome">Digite o seu nome</string>
@@ -13,10 +24,20 @@
     <string name="login_error_message">E-mail ou senha estão incorretos!</string>
     <string name="login_email_error_message">E-mail inválido</string>
     <string name="login_password_error_message">Senha inválida</string>
+    <string name="register_name_error_message">Nome inválido</string>
+    <string name="login_error_character_message">Dados Inválidos</string>
+    <string name="register_description_error_message">Descrição Inválida</string>
+
+
+
+
     <string name="home">Home</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nome">Nome</string>
+    <string name="image_error_message">Imagem inválida</string>
+    <string name="register_age_error_message">Idade Inválida</string>
+    <string name="register_birthdate_error_message">Data inválida</string>
     <string name="cadastrar">cadastrar</string>
     <string name="register_error_message">Erro ao registrar</string>
 </resources>

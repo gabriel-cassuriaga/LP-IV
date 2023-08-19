@@ -56,8 +56,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun showLogin() {
         binding.pbCadastroLoading.hide()
-        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-        startActivity(intent)
         finish()
     }
 }

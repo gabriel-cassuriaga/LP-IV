@@ -59,6 +59,7 @@ class LoginRepository {
 
     private fun LoginResponse.userResponseToEntity(): UserEntity {
         return UserEntity(
+            id = id,
             name = name,
             email = email,
             password = password,
