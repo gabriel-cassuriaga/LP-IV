@@ -83,7 +83,6 @@
             android:layout_marginBottom="40dp"
             android:text="@string/novo_por_aqui"
             android:textAlignment="center"
-            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
